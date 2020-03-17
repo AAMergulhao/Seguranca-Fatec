@@ -18,7 +18,7 @@ module.exports = (passport) =>{
     passport.use(new GitHubStrategy({
         clientID: auth.githubClientPublic,
         clientSecret: auth.githubClientSecret,
-        callbackURL: 'http://localhost:8088/auth/github/callback'
+        callbackURL: auth.githubCallbackUrl
     }, async (accessToken, refreshToken, profile, done) => {
         console.log(profile);
          let {_json} = profile;
