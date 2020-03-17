@@ -9,7 +9,7 @@ const routes = require('./routes/routes');
 
 const app = express();
 
-const PORT = process.env.port || 8088;
+const PORT = process.env.PORT || 8088;
 
 mongoose.connect(database.mongoUri,{ 
     useNewUrlParser: true,
