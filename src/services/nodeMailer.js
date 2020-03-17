@@ -18,7 +18,6 @@ function sendEmail(destiny){
         subject: 'Email teste Node',
         text: 'Testando NodeMailer'
     }
-    console.log(emailPassword)
     transporter.sendMail(mailOptions, (err, info) =>{
         if(!err){
             console.log('Email enviado', info.response);
