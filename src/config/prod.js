@@ -7,5 +7,6 @@ module.exports = {
         githubClientPublic: process.env.GITHUB_CLIENT_PUBLIC,
         githubCallbackUrl: process.env.GITHUB_CALLBACK_URL
     },
+    emailPassword: process.env.EMAIL_PASSWORD,
     cookieKey: process.env.COOKIE_KEY
 };

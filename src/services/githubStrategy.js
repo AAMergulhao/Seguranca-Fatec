@@ -20,7 +20,6 @@ module.exports = (passport) =>{
         clientSecret: auth.githubClientSecret,
         callbackURL: auth.githubCallbackUrl
     }, async (accessToken, refreshToken, profile, done) => {
-        console.log(profile);
          let {_json} = profile;
          let user = await User.findOne({githubId: profile.id});
 
