@@ -15,12 +15,4 @@ routes.get('/', (req,res) =>{
     res.render('Login');
 });
 
-routes.get('*', (req,res) =>{
-    res.render('Error');
-});
-
-routes.post('*', (req,res) =>{
-    res.json({message: 'Cannot Post'});
-});
-
 module.exports = routes;
