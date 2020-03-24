@@ -3,8 +3,9 @@ const passport = require('passport');
 const mongoose = require('mongoose');
 const bodyParser = require('body-parser');
 const cookieSession = require('cookie-session');
+const expressLayouts = require('express-ejs-layouts');
 
-const {database, cookieKey} = require('./config/keys');
+const { database, cookieKey } = require('./config/keys');
 
 const routes = require('./routes/routes');
 
@@ -15,13 +16,13 @@ const PORT = process.env.PORT || 8088;
 app.use(passport.initialize());
 app.use(passport.session());
 
-mongoose.connect(database.mongoUri,{ 
+mongoose.connect(database.mongoUri, {
     useNewUrlParser: true,
     useUnifiedTopology: true,
 }).then(() => console.log('DB Connected!'))
-.catch(err => {
-console.log(Error, err.message);
-});
+    .catch(err => {
+        console.log(Error, err.message);
+    });
 
 app.use(bodyParser.json())
 
@@ -30,19 +31,23 @@ app.use(cookieSession({
     keys: [cookieKey]
 }));
 
-app.use(routes);
-
-app.use(express.json());
-
-
 app.set('view engine', 'ejs');
+app.use(expressLayouts);
 
 app.use(express.static('public'));
 
-app.listen(PORT, (err)=>{
-    if(!err){
+app.use(express.json());
+
+app.use(routes);
+
+
+
+
+
+app.listen(PORT, (err) => {
+    if (!err) {
         console.log('Server listening on', PORT);
-    }else{
+    } else {
         console.log('Error:', err);
     }
 });
