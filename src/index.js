@@ -13,6 +13,16 @@ const app = express();
 
 const PORT = process.env.PORT || 8088;
 
+app.set('view engine', 'ejs');
+app.use(expressLayouts);
+
+app.use(express.static('public'));
+
+app.use(cookieSession({
+    maxAge: 24 * 60 * 60 * 1000, //Tempo de vida do cookie(1 dia)
+    keys: [cookieKey]
+}));
+
 app.use(passport.initialize());
 app.use(passport.session());
 
@@ -26,23 +36,9 @@ mongoose.connect(database.mongoUri, {
 
 app.use(bodyParser.json())
 
-app.use(cookieSession({
-    maxAge: 24 * 60 * 60 * 1000, //Tempo de vida do cookie(1 dia)
-    keys: [cookieKey]
-}));
-
-app.set('view engine', 'ejs');
-app.use(expressLayouts);
-
-app.use(express.static('public'));
-
 app.use(express.json());
 
 app.use(routes);
-
-
-
-
 
 app.listen(PORT, (err) => {
     if (!err) {

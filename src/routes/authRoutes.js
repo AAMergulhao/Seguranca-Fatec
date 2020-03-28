@@ -13,7 +13,8 @@ routes.get(
 );
 
 routes.get("/github/callback", passport.authenticate("github"), (req, res) => {
-  res.json(req.user);
+  res.redirect('/profile');
 });
+
 
 module.exports = routes;
