@@ -7,7 +7,6 @@ const UserSchema = new mongoose.Schema({
     avatar: String,
     location: String,
     bio: String,
-    github_url: String,
     repositories: Number
 });
 

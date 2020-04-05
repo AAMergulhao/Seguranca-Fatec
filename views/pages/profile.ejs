@@ -2,8 +2,73 @@
 Profile
 
 <%- contentFor('css') %> 
+<link rel="stylesheet" href="css/profile.css">
 
 <%- contentFor('content') %>
-<h2>Profile</h2>
+<div class="row">
+    <div class="col l3 m4 s12">
+        <div class="card" style="margin-top: 70px;">
+          <div class="card-image hoverable">
+            <a href="https://github.com/<%= profile.username %>" target="_blank"><img src="<%= profile.avatar %>"></a>
+            <span class="card-title"><%= profile.name %> </span>
+          </div>
+          <div class="card-content">
+            <div class="row">
+              <div class="col s1 m1 l1 offset-s10 offset-m10 offset-l10 ">
+                <a href="#" class="dropdown-trigger waves-effect waves-light" data-target='dropdown1'><i class="material-icons" style="color: #26a69a;">settings</i></a>
+                <ul id='dropdown1' class='dropdown-content'>
+                  <li><a href="/logout"><i class="material-icons">keyboard_return</i>Sair</a></li>
+                  <li><a href="#!"><i class="material-icons">refresh</i>Atualizar perfil</a></li>
+                </ul>
+              </div>
+              <div class="col l12 m12 s12">
+                <p class="section"><%= profile.bio %> </p>
+                <div class="divider"></div>
+                <div class="profile-repo z-depth-2">Repostitórios Públicos: <a style="color: #26a69a;"><%= profile.repositories %></a></div>
+              </div>
+            </div>
+          </div>
+        </div>
+    </div>
+
+  <div class="col l8 m4 s12">
+    <ul class="tabs" style="margin-top: 70px;">
+      <li class="tab col s6"><a class="active" href="#tags_div">Minhas Tags</a></li>
+      <li class="tab col s6"><a  href="#search_div">Pesquisar</a></li>
+    </ul>
+
+    <div id="tags_div" class="col s12 m12 l12 white">
+      <div class="row">
+        <div class="col s12 m12 l12">
+          <h2 class="center-align">Cadastre seus interesses</h1>
+          <div class="divider"></div>
+        </div>
+          <div class="col s12 m5 l5">
+            Insira aqui seus interesses:
+            <div class="chips">
+              <input class="custom-class">
+            </div>
+          </div>
+          <div class="col s1 l2 offset-s4">
+            <a class="btn-floating btn-large waves-effect waves-light" style="margin: 10px;">
+              <i class="material-icons hide-on-small-only">arrow_forward</i>
+              <i class="material-icons hide-on-med-and-up">arrow_downward</i>
+            </a>
+          </div>
+          <div class="col s12 m5 l5">
+            <div class="row">
+              <div class="col s12">
+                <div class="chips chips-initial">
+                  <input disabled>
+                </div>
+              </div>
+            </div>
+          </div>
+      </div>
+    </div>
+
+    <div id="search_div" class="col s12 m12 l12 green"> Search Div</div>
+  </div>
+</div>
 
 <%- contentFor('javascript') %>

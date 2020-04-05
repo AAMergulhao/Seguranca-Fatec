@@ -18,8 +18,7 @@ routes.get('/', homeMiddleware, (req, res) => {
 });
 
 routes.get('/profile', profileMiddleware, (req,res) =>{
-    console.log(req.user);
-    res.render('pages/profile');
+    res.render('pages/profile',{profile: req.user});
 });
 
 routes.get('/logout', (req,res) =>{

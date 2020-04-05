@@ -3,7 +3,7 @@ img {
   padding: 10px;
   width: 200px;
   height: 100%;
-  border: blue dotted 6px;
+  border: #24292e dotted 6px;
 }
 
 /*TODAS AS ESTILIZAÇÕES RELACIONADAS AO BOTÃO DE LOGIN VIERAM DESSA URL: https://github.com/TerryMooreII/materialize-social/blob/master/materialize-social.css */
