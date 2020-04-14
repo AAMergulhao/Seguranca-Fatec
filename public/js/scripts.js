@@ -29,4 +29,5 @@ $(document).ready(()=>{
           tag: 'Google',
         }],
       });
+    $('.tooltipped').tooltip();
 })

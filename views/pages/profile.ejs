@@ -9,13 +9,17 @@ Profile
     <div class="col l3 m4 s12">
         <div class="card" style="margin-top: 70px;">
           <div class="card-image hoverable">
-            <a href="https://github.com/<%= profile.username %>" target="_blank"><img src="<%= profile.avatar %>"></a>
-            <span class="card-title"><%= profile.name %> </span>
+            <a href="https://github.com/<%= profile.username %>" target="_blank">
+              <img src="<%= profile.avatar %>" class="tooltipped" data-position="right" data-tooltip="Ir para o Github">
+            </a>
+            <span class="card-title"><%= profile.username %> </span>
           </div>
           <div class="card-content">
             <div class="row">
               <div class="col s1 m1 l1 offset-s10 offset-m10 offset-l10 ">
-                <a href="#" class="dropdown-trigger waves-effect waves-light" data-target='dropdown1'><i class="material-icons" style="color: #26a69a;">settings</i></a>
+                <a href="#" class="dropdown-trigger waves-effect waves-light" data-target='dropdown1'>
+                  <i class="material-icons" style="color: #26a69a;">settings</i>
+                </a>
                 <ul id='dropdown1' class='dropdown-content'>
                   <li><a href="/logout"><i class="material-icons">keyboard_return</i>Sair</a></li>
                   <li><a href="#!"><i class="material-icons">refresh</i>Atualizar perfil</a></li>
@@ -43,27 +47,45 @@ Profile
           <h2 class="center-align">Cadastre seus interesses</h1>
           <div class="divider"></div>
         </div>
-          <div class="col s12 m5 l5">
-            Insira aqui seus interesses:
-            <div class="chips">
-              <input class="custom-class">
-            </div>
+        <form class="col s12">
+          <div class="row">
+            <div class="input-field col s6">
+              <i class="material-icons prefix">plus_one</i>
+              <input id="last_name" type="text" class="validate">
+              <label for="last_name">Interesse</label>
           </div>
-          <div class="col s1 l2 offset-s4">
-            <a class="btn-floating btn-large waves-effect waves-light" style="margin: 10px;">
-              <i class="material-icons hide-on-small-only">arrow_forward</i>
-              <i class="material-icons hide-on-med-and-up">arrow_downward</i>
-            </a>
-          </div>
-          <div class="col s12 m5 l5">
-            <div class="row">
-              <div class="col s12">
-                <div class="chips chips-initial">
-                  <input disabled>
-                </div>
-              </div>
-            </div>
-          </div>
+          <a class="btn-floating btn-small waves-effect waves-light green" style="margin-top: 20px;">
+            <i class="material-icons">add</i>
+          </a>
+      </form>
+      <div class="col s12 m12 l12">
+        <table class="centered highlight">
+          <thead>
+            <tr>
+              <th>Interesses</th>
+              <th></th>
+            </tr>
+            <tbody>
+              <tr>
+                <td>NodeJS </td>
+                <td><a class="btn-floating btn-small waves-effect waves-light red"><i class="material-icons">delete</i></a></td>
+              </tr>
+              <tr>
+                <td>Java</td>
+                <td><a class="btn-floating btn-small waves-effect waves-light red"><i class="material-icons">delete</i></a></td>
+              </tr>
+              <tr>
+                <td>PHP</td>
+                <td><a class="btn-floating btn-small waves-effect waves-light red"><i class="material-icons">delete</i></a></td>
+              </tr>
+              <tr>
+                <td>MySQL</td>
+                <td><a class="btn-floating btn-small waves-effect waves-light red"><i class="material-icons">delete</i></a></td>
+              </tr>
+            </tbody>
+          </thead>
+        </table>
+      </div>
       </div>
     </div>
 
