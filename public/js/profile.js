@@ -12,6 +12,11 @@ $(document).ready( async() =>{
         </tr>
         `);
     });
+
+    $("#tags_form").submit((e) =>{
+        e.preventDefault();
+        addTag();
+      });
 });
 
 function deleteTag(jElement){
