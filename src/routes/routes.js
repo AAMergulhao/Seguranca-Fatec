@@ -1,4 +1,6 @@
 const { Router } = require('express');
+const User = require('../models/User');
+
 const sendEmail = require('../services/nodeMailer');
 
 const authRoutes = require('./authRoutes');
@@ -24,6 +26,47 @@ routes.get('/profile', profileMiddleware, (req,res) =>{
 routes.get('/logout', (req,res) =>{
     req.logout();
     res.redirect('/');
+});
+
+routes.get('/tags', async(req,res) =>{
+    let {tags} = await User.findById(req.query.id);
+    res.json(tags);
+})
+
+routes.post('/tags', async(req,res) =>{
+    let {tags} = await User.findById(req.body.id);
+    var alreadyExists = 0;
+
+    if(tags.length > 0){
+        tags.forEach(tag => {
+            if(tag == req.body.tag){
+                alreadyExists = 1;
+            }
+        });
+
+        if(alreadyExists == 0){
+            tags.push(req.body.tag);
+            await User.updateOne({_id: req.body.id},{tags: tags});
+            res.json({status: 0, res: 'Tag inserida com sucesso'});
+            return;
+        }
+        res.json({status: 1, res: 'Tag já Existe'});
+        return;
+    }
+
+    tags.push(req.body.tag);
+    await User.updateOne({_id: req.body.id},{tags: tags});
+    res.json({status: 0, res: 'Tag inserida com sucesso'});
+});
+
+routes.delete('/tags', async(req,res) =>{
+     let {tags} = await User.findById(req.body.id);
+     tags = tags.filter(tag => (tag != req.body.tag));
+     await User.updateOne({_id: req.body.id},{tags: tags}).catch(()=>{
+         res.json({status: 1, res: 'Erro ao deletar a Tag'});
+         return;
+     });
+     res.json({status: 0, res: 'Tag deletada com sucesso'});
 });
 
 module.exports = routes;

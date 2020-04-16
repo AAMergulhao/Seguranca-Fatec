@@ -5,6 +5,10 @@ Profile
 <link rel="stylesheet" href="css/profile.css">
 
 <%- contentFor('content') %>
+<script>
+    var user_id = "<%= profile.id %>" 
+</script>
+
 <div class="row">
     <div class="col l3 m4 s12">
         <div class="card" style="margin-top: 70px;">
@@ -44,7 +48,7 @@ Profile
     <div id="tags_div" class="col s12 m12 l12 white">
       <div class="row">
         <div class="col s12 m12 l12">
-          <h2 class="center-align">Cadastre seus interesses</h1>
+          <h2 class="center-align tooltipped" data-position="bottom" data-tooltip="Outros usuários vão achar seu perfil através dos interesses listados abaixo.">Cadastre seus interesses</h1>
           <div class="divider"></div>
         </div>
         <form class="col s12">
@@ -65,23 +69,7 @@ Profile
               <th>Interesses</th>
               <th></th>
             </tr>
-            <tbody>
-              <tr>
-                <td>NodeJS </td>
-                <td><a class="btn-floating btn-small waves-effect waves-light red"><i class="material-icons">delete</i></a></td>
-              </tr>
-              <tr>
-                <td>Java</td>
-                <td><a class="btn-floating btn-small waves-effect waves-light red"><i class="material-icons">delete</i></a></td>
-              </tr>
-              <tr>
-                <td>PHP</td>
-                <td><a class="btn-floating btn-small waves-effect waves-light red"><i class="material-icons">delete</i></a></td>
-              </tr>
-              <tr>
-                <td>MySQL</td>
-                <td><a class="btn-floating btn-small waves-effect waves-light red"><i class="material-icons">delete</i></a></td>
-              </tr>
+            <tbody id="tableTags">
             </tbody>
           </thead>
         </table>
@@ -94,3 +82,4 @@ Profile
 </div>
 
 <%- contentFor('javascript') %>
+<script src="/js/profile.js"></script>

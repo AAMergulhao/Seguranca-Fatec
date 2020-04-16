@@ -31,7 +31,8 @@ module.exports = (passport) =>{
                  avatar: _json.avatar_url,
                  location: _json.location,
                  bio: _json.bio,
-                 repositories: _json.public_repos
+                 repositories: _json.public_repos,
+                 tags: []
              })
          }
         return done(null, user);
