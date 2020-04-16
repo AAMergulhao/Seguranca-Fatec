@@ -34,6 +34,10 @@ routes.get('/tags', async(req,res) =>{
 })
 
 routes.post('/tags', async(req,res) =>{
+    if(req.body.tag.trim() == ""){
+        res.json({status: 1, res: 'Campo em branco'});
+        return;
+    }
     let {tags} = await User.findById(req.body.id);
     var alreadyExists = 0;
 
@@ -60,9 +64,9 @@ routes.post('/tags', async(req,res) =>{
 });
 
 routes.delete('/tags', async(req,res) =>{
-     let {tags} = await User.findById(req.body.id);
-     tags = tags.filter(tag => (tag != req.body.tag));
-     await User.updateOne({_id: req.body.id},{tags: tags}).catch(()=>{
+     let {tags} = await User.findById(req.query.id);
+     tags = tags.filter(tag => (tag != req.query.tag));
+     await User.updateOne({_id: req.query.id},{tags: tags}).catch(()=>{
          res.json({status: 1, res: 'Erro ao deletar a Tag'});
          return;
      });

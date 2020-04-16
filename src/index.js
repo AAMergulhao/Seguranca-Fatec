@@ -34,7 +34,11 @@ mongoose.connect(database.mongoUri, {
         console.log(Error, err.message);
     });
 
-app.use(bodyParser.json())
+app.use(bodyParser.urlencoded({
+  extended: true
+}));
+
+app.use(bodyParser.json());
 
 app.use(express.json());
 
