@@ -25,8 +25,15 @@ function deleteTag(jElement){
     tag = tag[0].innerHTML;
 
     $.ajax({
-        url: `${window.origin}/tags?id=${user_id}&tag=${tag}`,
+        url: `${window.origin}/tags`,
         method: 'DELETE',
+        headers:{
+            "Content-Type": "application/json"
+        },
+        data: JSON.stringify({
+            id: user_id,
+            tag: tag
+        }),
         success: (data) => {
             M.toast({html: data.res});
             $(table_row).remove();
