@@ -1,5 +1,10 @@
 $(document).ready(()=>{
-    preLoader(1700);
+    $(".preloader-background")
+                    .delay(1700)
+                    .fadeOut("slow");
+    $(".preloader-wrapper")
+                    .delay(1700)
+                    .fadeOut();
     $('.dropdown-trigger')
     .dropdown(
         {
@@ -81,7 +86,7 @@ function preLoader(time){
                         </div>
                     </div>`
   $(html).appendTo('body');
-  
+
   $(".preloader-background")
                     .delay(time)
                     .fadeOut("slow");
