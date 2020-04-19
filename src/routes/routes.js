@@ -76,7 +76,7 @@ routes.delete('/tags', async (req, res) => {
 routes.get('/profileUpdate', async (req, res) => {
     let { data } = await axios.get(`https://api.github.com/users/${req.user.username}`);
     let { name, login, avatar_url, location, bio, public_repos } = data;
-    console.log(data)
+    
     await User.updateOne({ _id: req.user._id },
         {
             name,
@@ -85,11 +85,9 @@ routes.get('/profileUpdate', async (req, res) => {
             location,
             bio,
             respositories: public_repos
-        }).catch(() => {
-            res.json({ status: 1, res: 'Erro ao atualizar Perfil' });
-        });
+        })
+    
     res.redirect('/profile');
-    res.json({ status: 0, res: 'Perfil atualizado com sucesso' });
 })
 
 module.exports = routes;
