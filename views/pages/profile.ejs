@@ -1,79 +1,83 @@
 <%- contentFor('title') %>
 Profile
 
-<%- contentFor('css') %> 
+<%- contentFor('css') %>
 <link rel="stylesheet" href="css/profile.css">
 
 <%- contentFor('content') %>
 <script>
-    var user_id = "<%= profile.id %>" 
+  let user_id = "<%= profile.id %>"
 </script>
 
 <div class="row">
-    <div class="col l3 m4 s12">
-        <div class="card" style="margin-top: 70px;">
-          <div class="card-image hoverable">
-            <a href="https://github.com/<%= profile.username %>" target="_blank">
-              <img src="<%= profile.avatar %>" class="tooltipped" data-position="right" data-tooltip="Ir para o Github">
+  <div class="col l3 m4 s12">
+    <div class="card" style="margin-top: 70px;">
+      <div class="card-image hoverable">
+        <a href="https://github.com/<%= profile.username %>" target="_blank">
+          <img src="<%= profile.avatar %>" class="tooltipped" data-position="right" data-tooltip="Ir para o Github">
+        </a>
+        <span class="card-title"><%= profile.username %> </span>
+      </div>
+      <div class="card-content">
+        <div class="row">
+          <div class="col s1 m1 l1 offset-s10 offset-m10 offset-l10 ">
+            <a href="#" class="dropdown-trigger waves-effect waves-light" data-target='dropdown1'>
+              <i class="material-icons" style="color: #26a69a;">settings</i>
             </a>
-            <span class="card-title"><%= profile.username %> </span>
+            <ul id='dropdown1' class='dropdown-content'>
+              <li><a href="/logout"><i class="material-icons">keyboard_return</i>Sair</a></li>
+              <li><a href="/profileUpdate"><i class="material-icons">refresh</i>Atualizar perfil</a></li>
+            </ul>
           </div>
-          <div class="card-content">
-            <div class="row">
-              <div class="col s1 m1 l1 offset-s10 offset-m10 offset-l10 ">
-                <a href="#" class="dropdown-trigger waves-effect waves-light" data-target='dropdown1'>
-                  <i class="material-icons" style="color: #26a69a;">settings</i>
-                </a>
-                <ul id='dropdown1' class='dropdown-content'>
-                  <li><a href="/logout"><i class="material-icons">keyboard_return</i>Sair</a></li>
-                  <li><a href="#!"><i class="material-icons">refresh</i>Atualizar perfil</a></li>
-                </ul>
-              </div>
-              <div class="col l12 m12 s12">
-                <p class="section"><%= profile.bio %> </p>
-                <div class="divider"></div>
-                <div class="profile-repo z-depth-2">Repostitórios Públicos: <a style="color: #26a69a;"><%= profile.repositories %></a></div>
-              </div>
-            </div>
+          <div class="col l12 m12 s12">
+            <p class="section"><%= profile.bio %> </p>
+            <div class="divider"></div>
+            <div class="profile-repo z-depth-2">Repostitórios Públicos: <a
+                style="color: #26a69a;"><%= profile.repositories %></a></div>
           </div>
         </div>
+      </div>
     </div>
+  </div>
 
   <div class="col l8 m4 s12">
     <ul class="tabs" style="margin-top: 70px;">
       <li class="tab col s6"><a class="active" href="#tags_div">Minhas Tags</a></li>
-      <li class="tab col s6"><a  href="#search_div">Pesquisar</a></li>
+      <li class="tab col s6"><a href="#search_div">Pesquisar</a></li>
     </ul>
 
     <div id="tags_div" class="col s12 m12 l12 white">
       <div class="row">
         <div class="col s12 m12 l12">
-          <h2 class="center-align tooltipped" data-position="bottom" data-tooltip="Outros usuários vão achar seu perfil através dos interesses listados abaixo.">Cadastre seus interesses</h1>
-          <div class="divider"></div>
+          <h2 class="center-align tooltipped" data-position="bottom"
+            data-tooltip="Outros usuários vão achar seu perfil através dos interesses listados abaixo.">Cadastre seus
+            interesses</h1>
+            <div class="divider"></div>
         </div>
         <form id="tags_form" class="col s12">
           <div class="row">
             <div class="input-field col s6">
               <i class="material-icons prefix">plus_one</i>
               <input id="new_tag" type="text" class="validate">
-              <label >Interesse</label>
-          </div>
-          <a id="addButton" class="btn-floating btn-small waves-effect waves-light green" style="margin-top: 20px;" onclick="addTag()">
-            <i class="material-icons">add</i>
-          </a>
+              <label>Interesse</label>
+            </div>
+            <a id="addButton" class="btn-floating btn-small waves-effect waves-light green" style="margin-top: 20px;"
+              onclick="addTag()">
+              <i class="material-icons">add</i>
+            </a>
         </form>
-      <div class="col s12 m12 l12">
-        <table class="centered highlight">
-          <thead>
-            <tr>
-              <th>Interesses</th>
-              <th></th>
-            </tr>
+        <div class="col s12 m12 l12">
+          <table class="centered highlight">
+            <thead>
+              <tr>
+                <th>Interesses</th>
+                <th></th>
+              </tr>
             <tbody id="tableTags">
             </tbody>
-          </thead>
-        </table>
-      </div>
+            </thead>
+          </table>
+        </div>
       </div>
     </div>
 
