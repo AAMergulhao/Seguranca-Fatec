@@ -31,6 +31,11 @@
     color: #26a69a;
 }
 
+.scrollable {
+  height: 300px;
+  overflow:auto;
+}
+
 tbody {
   display:block;
   height:150px;
