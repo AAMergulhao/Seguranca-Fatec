@@ -88,6 +88,17 @@ routes.get('/profileUpdate', async (req, res) => {
         })
     
     res.redirect('/profile');
-})
+});
+
+routes.get('/searchTags', async(req,res) =>{
+    let users = await User.find({tags: {$in: [`${req.query.tag}`]}}).catch(() =>{
+        res.json({status:1, res:'Erro ao buscar os usuarios'});
+    });
+
+    res.json({
+        status:0,
+        users,
+    });
+});
 
 module.exports = routes;

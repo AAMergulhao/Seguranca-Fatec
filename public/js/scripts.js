@@ -19,18 +19,8 @@ $(document).ready(()=>{
         responsiveThreshold : 1920
         }
     );
-    $('.chips').chips();
-    $('.chips-initial').chips({
-        data: [{
-          tag: 'Apple',
-        }, {
-          tag: 'Microsoft',
-        }, {
-          tag: 'Google',
-        }],
-      });
     $('.tooltipped').tooltip();
-})
+});
 
 function preLoader(time){
   var html = `
@@ -93,4 +83,4 @@ function preLoader(time){
   $(".preloader-wrapper")
                     .delay(time)
                     .fadeOut();
-}
+};
