@@ -4,6 +4,7 @@ $(document).ready(() =>{
             searchUsers()
          }
       });
+    $('#user_modal').modal();
 })
 
 async function searchUsers(){
@@ -23,15 +24,13 @@ async function searchUsers(){
             data.users.forEach(user => {
                 $('#users_div').append(`
                     <div class="col s12 l5">
-                        <div class="card horizontal hoverable pointer_user" onclick="userModal()">
+                        <div class="card teal lighten-2 horizontal hoverable pointer_user" onclick="userModal()">
                             <div class="card-image">
-                                <a href="">
                                 <img src="${user.avatar}" style="height: 80px; width: 80px;">
-                                </a>
                             </div>
                             <div class="card-stacked">
-                                <div class="card-content">
-                                    <p><strong>${user.username}</strong></p>
+                                <div class="card-content white-text">
+                                    <p>${user.username}</p>
                                 </div>
                             </div>
                         </div>
@@ -44,5 +43,5 @@ async function searchUsers(){
 };
 
 function userModal(){
-    alert('Teste')
+    $('#user_modal').modal('open'); 
 }
