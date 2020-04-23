@@ -91,12 +91,20 @@ routes.get('/profileUpdate', async (req, res) => {
 });
 
 routes.get('/searchTags', async(req,res) =>{
+    if(req.query.tag == ""){
+        res.json({status:1, res:'Campo em branco'});
+        return;
+    }
     let users = await User.find({tags: {$in: [`${req.query.tag}`]}}).catch(() =>{
         res.json({status:1, res:'Erro ao buscar os usuarios'});
     });
+    
+    if(users.length == 0){
+        res.json({status:1, res:'Nenhum usuário encontrado'});
+        return;
+    };
 
     res.json({
-        status:0,
         users,
     });
 });

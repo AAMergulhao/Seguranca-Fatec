@@ -32,8 +32,9 @@ Profile
           <div class="col l12 m12 s12">
             <p class="section"><%= profile.bio %> </p>
             <div class="divider"></div>
-            <div class="profile-repo z-depth-2">Repostitórios Públicos: <a
-                style="color: #26a69a;"><%= profile.repositories %></a></div>
+            <div class="profile-repo z-depth-2">Repostitórios Públicos: 
+              <a style="color: #26a69a;"><%= profile.repositories %></a>
+            </div>
           </div>
         </div>
       </div>
@@ -84,76 +85,21 @@ Profile
     <div id="search_div" class="col s12 m12 l12 white">
       <div class="row">
         <div class="input-field col s6 l6 section">
-          <input type="text">
+          <input id="search_input" type="text">
           <label>Pesquisar</label>
         </div>
         <div class="col s6 l6">
-          <a id="addButton" class="btn-floating btn-small waves-effect waves-light section" style="margin-top: 20px;"
-              onclick="addTag()">
+          <a id="searchButton" class="btn-floating btn-small waves-effect waves-light section" style="margin-top: 20px;"
+              onclick="searchUsers()">
           <i class="material-icons">search</i>
         </a>
         </div>
       </div>
       <div class="row">
-        <div class="col s12 l12 scrollable">
-          <div class="col s12 l5">
-            <div class="card horizontal">
-              <div class="card-image">
-                <img src="https://avatars2.githubusercontent.com/u/37882917?s=460&u=ca6c93e20f95381d49671c0f179442a9fbee5c73&v=4">
-              </div>
-              <div class="card-stacked">
-                <div class="card-content">
-                  <p><strong>AAMergulhão</strong></p>
-                </div>
-              </div>
-            </div>
-          </div>
-          <div class="col s12 l5">
-            <div class="card horizontal">
-              <div class="card-image">
-                <img src="https://avatars2.githubusercontent.com/u/37882917?s=460&u=ca6c93e20f95381d49671c0f179442a9fbee5c73&v=4">
-              </div>
-              <div class="card-stacked">
-                <div class="card-content">
-                  <p><strong>AAMergulhão</strong></p>
-                </div>
-              </div>
-            </div>
-          </div>
-          <div class="col s12 l5">
-            <div class="card horizontal">
-              <div class="card-image">
-                <img src="https://avatars2.githubusercontent.com/u/37882917?s=460&u=ca6c93e20f95381d49671c0f179442a9fbee5c73&v=4">
-              </div>
-              <div class="card-stacked">
-                <div class="card-content">
-                  <p><strong>AAMergulhão</strong></p>
-                </div>
-              </div>
-            </div>
-          </div>
-          <div class="col s12 l5">
-            <div class="card horizontal">
-              <div class="card-image">
-                <img src="https://avatars2.githubusercontent.com/u/37882917?s=460&u=ca6c93e20f95381d49671c0f179442a9fbee5c73&v=4">
-              </div>
-              <div class="card-stacked">
-                <div class="card-content">
-                  <p><strong>AAMergulhão</strong></p>
-                </div>
-              </div>
-            </div>
-          </div>
-          <div class="col s12 l5">
-            <div class="card horizontal">
-              <div class="card-image">
-                <img src="https://avatars2.githubusercontent.com/u/37882917?s=460&u=ca6c93e20f95381d49671c0f179442a9fbee5c73&v=4">
-              </div>
-              <div class="card-stacked">
-                <div class="card-content">
-                  <p><strong>AAMergulhão</strong></p>
-                </div>
-              </div>
+        <div id="users_div" class="col s12 l12 scrollable">
+          <div class="card teal lighten-2 col s12">
+            <div class="card-content white-text">
+              Encontre usuários com interesses em comum com você.
             </div>
           </div>
         </div>

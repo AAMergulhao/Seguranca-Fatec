@@ -46,3 +46,9 @@ thead, tbody tr {
   width:100%;
   table-layout:fixed;
 }
+
+.pointer_user:hover{
+   cursor: hand;
+   cursor: pointer;
+   opacity: .9;
+}
