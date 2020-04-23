@@ -1,3 +1,11 @@
+$(document).ready(() =>{
+    $("#search_input").keypress((key) => {
+        if (key.keyCode === 10 || key.keyCode === 13) {
+            searchUsers()
+         }
+      });
+})
+
 async function searchUsers(){
     let tag = $('#search_input').val();
     
