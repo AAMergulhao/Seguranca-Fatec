@@ -28,6 +28,13 @@ routes.get('/logout', (req, res) => {
     res.redirect('/');
 });
 
+routes.get('/user', async (req,res) =>{
+    let user = await User.findById(req.query.id).catch(() => {
+        res.json({ status: 1, res: 'Erro ao buscar informações do usuario' })});
+
+    res.json(user);
+})
+
 routes.get('/tags', async (req, res) => {
     let { tags } = await User.findById(req.query.id);
     res.json(tags);

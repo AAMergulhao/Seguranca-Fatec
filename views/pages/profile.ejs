@@ -30,7 +30,7 @@ Profile
             </ul>
           </div>
           <div class="col l12 m12 s12">
-            <p class="section"><%= profile.bio %> </p>
+            <p class="section"><%= profile.bio  || "Nenhuma biografia encontrada" %> </p>
             <div class="divider"></div>
             <div class="card teal lighten-2 col s12">
               <div class="card-content white-text" style="font-size: 1.4em;">
@@ -120,18 +120,15 @@ Profile
 
       <div class="col s12 m4 l4">
         <div class="card">
-          <div class="card-image hoverable">
-            <a href="https://github.com/<%= profile.username %>" target="_blank">
-              <img src="<%= profile.avatar %>" class="tooltipped" data-position="right" data-tooltip="Ir para o Github">
-            </a>
-            <span class="card-title"><%= profile.username %> </span>
+          <div id="modal_avatar" class="card-image hoverable">
+            <!--Preenchido dinamicamente-->
           </div>
           <div class="card-content">
             <div class="row">
               <div class="col l12 m12 s12">
                 <div class="card teal lighten-2 col s12">
-                  <div class="card-content white-text" style="font-size: 1.4em;">
-                    Repostitórios Públicos: <%= profile.repositories %>
+                  <div id="modal_repo" class="card-content white-text" style="font-size: 1.4em;">
+                    <!--Preenchido dinamicamente-->
                   </div>
                 </div>
               </div>
@@ -143,10 +140,18 @@ Profile
       <div class="col s12 m6 l6 offset-m1 offset-l1">
         <div class="card">
           <div class="card-content grey lighten-4">
-            <div>
-              <strong style="font-weight: bolder !important; font-size: 1.2em">Biografia:</strong>
-              <div class="divider"></div>
-              <%= profile.bio %>
+            <div id="modal_bio">
+              
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="col s12 m6 l6 offset-m1 offset-l1">
+        <div class="card">
+          <div class="card-content grey lighten-4">
+            <div id="modal_location">
+              
             </div>
           </div>
         </div>
@@ -157,15 +162,8 @@ Profile
           <div class="card-content grey lighten-4">
             <strong style="font-weight: bolder !important; font-size: 1.2em">Interesses:</strong>
             <div class="divider"></div>
-            <ul class="collection" style="height: 150px; overflow:auto;">
-              <li class="collection-item">PHP</li>
-              <li class="collection-item">NodeJs</li>
-              <li class="collection-item">MySQL</li>
-              <li class="collection-item">Python</li>
-              <li class="collection-item">MySQL</li>
-              <li class="collection-item">Python</li>
-              <li class="collection-item">MySQL</li>
-              <li class="collection-item">Python</li>
+            <ul id="modal_tags" class="collection" style="height: 150px; overflow:auto;">
+
             </ul>
           </div>
         </div>
